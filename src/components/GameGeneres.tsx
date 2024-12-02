@@ -1,5 +1,6 @@
 import { HStack, List, ListItem, Text, Image, Heading } from "@chakra-ui/react";
 import { useGenres } from "./hooks/useData";
+import GameGeneresSkelton from "./common/GameGeneresSkelton";
 
 const GameGeneres = () => {
   const { data, isLoading, error } = useGenres();
@@ -7,6 +8,8 @@ const GameGeneres = () => {
     <>
       <Heading marginBottom="20px">Generes</Heading>
       <List>
+        {error && <p>{error}</p>}
+        {isLoading && <GameGeneresSkelton />}
         {data?.map((generes) => (
           <ListItem key={generes.id} marginBottom="5px">
             <HStack>

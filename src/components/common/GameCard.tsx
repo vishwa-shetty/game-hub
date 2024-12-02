@@ -2,12 +2,14 @@ import {
   Card,
   CardBody,
   CardFooter,
+  CardHeader,
   Heading,
   HStack,
   Image,
   Text,
 } from "@chakra-ui/react";
 import { Games } from "../../models/games";
+import Platform from "./Platform";
 
 interface Props {
   game: Games;
@@ -16,15 +18,19 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card maxW="sm" borderRadius="lg">
-      <CardBody p={0}>
+      <CardHeader p={0}>
         <Image borderRadius="lg" src={game.background_image} />
+      </CardHeader>
+      <CardBody>
+        <HStack>
+          <Platform
+            gamePlatforms={game.parent_platforms.map((item) => item.platform)}
+          />
+        </HStack>
       </CardBody>
-      <HStack justifyContent={"space-between"} pr={5}>
-        <CardFooter>
-          <Heading fontSize="xl">{game.name}</Heading>
-        </CardFooter>
-        <Text>Sample text</Text>
-      </HStack>
+      <CardFooter paddingTop={0}>
+        <Heading fontSize="xl">{game.name}</Heading>
+      </CardFooter>
     </Card>
   );
 };

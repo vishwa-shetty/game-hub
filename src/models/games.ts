@@ -4,15 +4,18 @@ export interface Platform {
   slug: string;
 }
 
-export interface Games {
+export interface Generes {
   id: number;
   name: string;
   background_image: string;
+}
+
+export interface Games extends Generes {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
 }
 
-export interface FetchGamesResponse {
-  results: Games[];
+export interface UseFetchData<T> {
+  results: T[];
   count: number;
 }

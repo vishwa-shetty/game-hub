@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
+import { Games, Generes, UseFetchData } from "../../models/games";
 import { CanceledError } from "axios";
-import { Games, FetchGamesResponse } from "../../models/games";
 
-const useGames = () => {
-  const [games, setGames] = useState<Games[]>();
+const useData = <T>(endpoint: string) => {
+  const [data, setData] = useState<T[]>();
   const [error, setErrors] = useState();
   const [isLoading, setLoading] = useState(false);
 
@@ -12,9 +12,9 @@ const useGames = () => {
     const controller = new AbortController();
     setLoading(true);
     apiClient
-      .get<FetchGamesResponse>("/games", { signal: controller.signal })
-      .then((res) => {
-        setGames(res.data.results);
+      .get<UseFetchData<T>>(endpoint, { signal: controller.signal })
+      .then((response) => {
+        setData(response.data.results);
         setLoading(false);
       })
       .catch((err) => {
@@ -26,7 +26,11 @@ const useGames = () => {
     return () => controller.abort();
   }, []);
 
-  return { games, error, isLoading };
+  return { data, error, isLoading };
 };
 
-export default useGames;
+// selectors
+export const useGames = () => useData<Games>("/games");
+export const useGenres = () => useData<Generes>("/genres");
+
+export default useData;

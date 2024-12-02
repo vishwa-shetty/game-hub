@@ -4,6 +4,7 @@ import NavBar from "./components/layout/NavBar";
 import SideBar from "./components/layout/SideBar";
 import Main from "./components/layout/Main";
 import Footer from "./components/layout/Footer";
+import GameGeneres from "./components/GameGeneres";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area={"sidebar"}>
-            <SideBar />
+            <GameGeneres />
           </GridItem>
         </Show>
         <GridItem area={"main"}>

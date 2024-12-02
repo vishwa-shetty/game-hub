@@ -6,7 +6,6 @@ import {
   Heading,
   HStack,
   Image,
-  Text,
 } from "@chakra-ui/react";
 import { Games } from "../../models/games";
 import Platform from "./Platform";
@@ -30,7 +29,7 @@ const GameCard = ({ game }: Props) => {
         </HStack>
       </CardBody>
       <CardFooter maxW="full" paddingTop={0}>
-        <HStack justifyContent={"space-evenly"}>
+        <HStack justifyContent="space-between" minWidth="100%">
           <Heading fontSize="xl">{game.name}</Heading>
           <CriticScore score={game.metacritic} />
         </HStack>

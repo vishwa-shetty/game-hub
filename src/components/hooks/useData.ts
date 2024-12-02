@@ -29,7 +29,7 @@ const useData = <T>(endpoint: string) => {
   return { data, error, isLoading };
 };
 
-// selectors
+// selectors for fetching data
 export const useGames = () => useData<Games>("/games");
 export const useGenres = () => useData<Generes>("/genres");
 

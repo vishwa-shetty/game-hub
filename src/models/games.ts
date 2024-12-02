@@ -7,10 +7,11 @@ export interface Platform {
 export interface Generes {
   id: number;
   name: string;
-  background_image: string;
+  image_background: string;
 }
 
 export interface Games extends Generes {
+  background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
 }

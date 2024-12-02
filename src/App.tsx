@@ -1,9 +1,9 @@
 import "./App.css";
 import { Grid, GridItem, Show, theme } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import SideBar from "./components/SideBar";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import NavBar from "./components/layout/NavBar";
+import SideBar from "./components/layout/SideBar";
+import Main from "./components/layout/Main";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (

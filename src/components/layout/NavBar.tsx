@@ -1,7 +1,7 @@
 import { HStack, Image, Img, Input, Text } from "@chakra-ui/react";
-import logo from "../assets/logo.png";
-import user from "../assets/user.png";
-import ToggleTheme from "./common/ToggleTheme";
+import logo from "../../assets/logo.png";
+import user from "../../assets/user.png";
+import ToggleTheme from "../common/ToggleTheme";
 
 const NavBar = () => {
   return (

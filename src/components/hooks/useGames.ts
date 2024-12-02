@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
-
-interface Games {
-  id: number;
-  name: string;
-}
-
-interface FetchGamesResponse {
-  results: Games[];
-  count: number;
-}
+import { Games, FetchGamesResponse } from "../../models/games";
 
 const useGames = () => {
   const [games, setGames] = useState<Games[]>();

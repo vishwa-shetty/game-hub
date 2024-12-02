@@ -1,17 +1,25 @@
-import { HStack, Image, Img, Input, Text } from "@chakra-ui/react";
-import logo from "../../assets/logo.png";
+import {
+  HStack,
+  Image,
+  Img,
+  Input,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
+import logo_light from "../../assets/game-over-light.png";
+import logo_dark from "../../assets/game-over-dark.png";
 import user from "../../assets/user.png";
 import ToggleTheme from "../common/ToggleTheme";
 
 const NavBar = () => {
+  const { colorMode } = useColorMode();
   return (
     <>
       <HStack spacing={5}>
-        <Img src={logo} boxSize="50px" />
-        <Text>Vishwa Game Hub</Text>
-        <Input />
+        <Img src={colorMode === "dark" ? logo_dark : logo_light} boxSize={10} />
+        <Input placeholder="Search Games..." />
         <ToggleTheme />
-        <Image src={user} width="30px" />
+        <Image src={user} boxSize={10} />
       </HStack>
     </>
   );

@@ -10,7 +10,8 @@ const GameGrid = () => {
       <SimpleGrid
         column={3}
         spacing={10}
-        templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
+        mt={5}
       >
         {games?.map((game) => (
           <GameCard key={game.id} game={game} />

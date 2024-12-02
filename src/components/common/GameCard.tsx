@@ -2,9 +2,10 @@ import {
   Card,
   CardBody,
   CardFooter,
+  Heading,
   HStack,
   Image,
-  SimpleGrid,
+  Text,
 } from "@chakra-ui/react";
 import { Games } from "../../models/games";
 
@@ -14,11 +15,16 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card>
-      <CardBody>
-        <Image src={game.background_image} />
+    <Card maxW="sm" borderRadius="lg">
+      <CardBody p={0}>
+        <Image borderRadius="lg" src={game.background_image} />
       </CardBody>
-      <CardFooter>{game.name}</CardFooter>
+      <HStack justifyContent={"space-between"} pr={5}>
+        <CardFooter>
+          <Heading fontSize="xl">{game.name}</Heading>
+        </CardFooter>
+        <Text>Sample text</Text>
+      </HStack>
     </Card>
   );
 };

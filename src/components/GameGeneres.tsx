@@ -9,7 +9,7 @@ const GameGeneres = () => {
       <Heading marginBottom="20px">Generes</Heading>
       <List>
         {error && <p>{error}</p>}
-        {isLoading && <GameGeneresSkelton />}
+        {isLoading && <GameGeneresSkelton count={data?.length ?? 10} />}
         {data?.map((generes) => (
           <ListItem key={generes.id} marginBottom="5px">
             <HStack>

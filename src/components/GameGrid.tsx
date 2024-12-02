@@ -5,7 +5,7 @@ import GameGridSkelton from "./common/GameGridSkelton";
 
 const GameGrid = () => {
   const { data, error, isLoading } = useGames();
-  const gameArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
     <div>
       {error && <Text>error</Text>}
@@ -15,7 +15,7 @@ const GameGrid = () => {
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
         mt={5}
       >
-        {isLoading && gameArray.map((game) => <GameGridSkelton key={game} />)}
+        {isLoading && <GameGridSkelton count={data?.length ?? 9} />}
         {data?.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}

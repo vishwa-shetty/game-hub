@@ -1,8 +1,8 @@
 import { SkeletonText, Stack } from "@chakra-ui/react";
 
-const GameGeneresSkelton = () => {
+const GameGeneresSkelton = ({ count }: { count: number }) => {
   const genereArray = Array.from(
-    { length: 10 },
+    { length: count },
     () => Math.floor(Math.random() * 100) + 1
   );
 
@@ -10,7 +10,13 @@ const GameGeneresSkelton = () => {
     <>
       <Stack>
         {genereArray?.map((generes) => (
-          <SkeletonText mt="1" noOfLines={2} spacing="2" skeletonHeight="6" />
+          <SkeletonText
+            key={generes}
+            mt="1"
+            noOfLines={2}
+            spacing="2"
+            skeletonHeight="6"
+          />
         ))}
       </Stack>
     </>

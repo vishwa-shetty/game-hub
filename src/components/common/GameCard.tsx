@@ -10,6 +10,7 @@ import {
 import { Games } from "../../models/games";
 import Platform from "./Platform";
 import CriticScore from "./CriticScore";
+import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
   game: Games;
@@ -19,7 +20,10 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card maxW="sm" borderRadius="lg">
       <CardHeader p={0}>
-        <Image borderRadius="lg" src={game.background_image} />
+        <Image
+          borderRadius="lg"
+          src={getCroppedImageUrl(game.background_image)}
+        />
       </CardHeader>
       <CardBody>
         <HStack>

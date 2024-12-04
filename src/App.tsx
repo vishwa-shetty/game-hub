@@ -51,8 +51,18 @@ function App() {
                 </Text>
               </div>
               <HStack justifyContent="space-around">
-                <PlatformSelector />
-                <SortSelector />
+                <PlatformSelector
+                  selectPlatform={gameQuery.platform}
+                  onSelectPlatform={(platform) =>
+                    setGameQuery({ ...gameQuery, platform })
+                  }
+                />
+                <SortSelector
+                  selectedSort={gameQuery.sort}
+                  onSelectedSort={(sort: string) =>
+                    setGameQuery({ ...gameQuery, sort })
+                  }
+                />
               </HStack>
             </HStack>
             <GameGrid gameQuery={gameQuery} />

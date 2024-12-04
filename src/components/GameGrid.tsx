@@ -21,6 +21,7 @@ const GameGrid = ({ gameQuery }: Props) => {
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
         mt={5}
       >
+        {data && data?.length <= 0 && <Text>No Games Found.</Text>}
         {isLoading && <GameGridSkelton count={data?.length ?? 9} />}
         {data?.map((game) => (
           <GameCard key={game.id} game={game} />

@@ -1,19 +1,22 @@
-import { Generes, Games, GameQuery } from "../../models/games";
+import { Generes, Games, GameQuery, Platform } from "../../models/games";
 import useData from "./useData";
 
-// selectors for fetching Games data with Params
+// selectors for fetching Games with Params
 export const useGames = (gameQuery: GameQuery) =>
   useData<Games>(
     "/games",
     {
       params: {
         genres: gameQuery?.genere?.id,
-        platform: gameQuery?.platform?.id,
-        sort: gameQuery?.sort?.value,
+        platforms: gameQuery?.platform?.id,
+        ordering: gameQuery?.sort,
       },
     },
     [gameQuery]
   );
 
-// selectors for fetching Generes data
+// fetching Generes
 export const useGenres = () => useData<Generes>("/genres");
+
+// fetching parent platform
+export const usePlatform = () => useData<Platform>("/platforms/lists/parents");

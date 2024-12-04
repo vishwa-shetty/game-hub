@@ -21,12 +21,8 @@ export interface UseFetchData<T> {
   count: number;
 }
 
-export interface Sort {
-  value: string;
-}
-
 export interface GameQuery {
   genere: Generes | null;
-  sort: Sort | null;
+  sort: string | null;
   platform: Platform | null;
 }

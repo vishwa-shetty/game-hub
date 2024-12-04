@@ -1,18 +1,32 @@
 import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
+import { usePlatform } from "../hooks/useSelectors";
+import { Platform } from "../../models/games";
 
-const PlatformSelector = () => {
+interface Props {
+  selectPlatform: Platform | null;
+  onSelectPlatform: (platform: Platform | null) => void;
+}
+
+const PlatformSelector = ({ selectPlatform, onSelectPlatform }: Props) => {
+  const { data, error } = usePlatform();
+  if (error) return null;
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Platform
+        {`Platform: ${selectPlatform ? selectPlatform?.name : "All"}`}
       </MenuButton>
       <MenuList>
-        <MenuItem>Download</MenuItem>
-        <MenuItem>Create a Copy</MenuItem>
-        <MenuItem>Mark as Draft</MenuItem>
-        <MenuItem>Delete</MenuItem>
-        <MenuItem>Attend a Workshop</MenuItem>
+        <MenuItem onClick={() => onSelectPlatform(null)}>All</MenuItem>
+        {data?.map((platform) => (
+          <MenuItem
+            key={platform.id}
+            value={platform.name}
+            onClick={() => onSelectPlatform(platform)}
+          >
+            {platform.name}
+          </MenuItem>
+        ))}
       </MenuList>
     </Menu>
   );

@@ -6,10 +6,10 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
-import { useGenres } from "./hooks/useData";
 import GameGeneresSkelton from "./common/GameGeneresSkelton";
 import { Generes } from "../models/games";
 import getCroppedImageUrl from "./services/image-url";
+import { useGenres } from "./hooks/useSelectors";
 
 interface Props {
   onSelectedGenere: (generes: Generes | null) => void;

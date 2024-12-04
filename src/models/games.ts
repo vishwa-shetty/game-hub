@@ -20,3 +20,13 @@ export interface UseFetchData<T> {
   results: T[];
   count: number;
 }
+
+export interface Sort {
+  value: string;
+}
+
+export interface GameQuery {
+  genere: Generes | null;
+  sort: Sort | null;
+  platform: Platform | null;
+}

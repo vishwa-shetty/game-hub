@@ -46,7 +46,9 @@ function App() {
           <>
             <HStack justifyContent="space-between">
               <div>
-                <Heading fontSize="5xl">New and Trending</Heading>
+                <Heading fontSize="5xl">{`${gameQuery?.platform?.name || ""} ${
+                  gameQuery?.genere?.name || ""
+                } Games`}</Heading>
               </div>
               <HStack justifyContent="space-around">
                 <PlatformSelector

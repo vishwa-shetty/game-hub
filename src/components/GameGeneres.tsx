@@ -18,12 +18,12 @@ interface Props {
 
 const GameGeneres = ({ onSelectedGenere, selectedGeneres }: Props) => {
   const { data, isLoading, error } = useGenres();
+  if (error) return null;
+  if (isLoading) return <GameGeneresSkelton count={data?.length ?? 10} />;
   return (
     <>
       <Heading marginBottom="20px">Generes</Heading>
       <List>
-        {error && <p>{error}</p>}
-        {isLoading && <GameGeneresSkelton count={data?.length ?? 10} />}
         {data?.map((generes) => (
           <ListItem key={generes.id} marginBottom="5px">
             <HStack>
@@ -42,6 +42,8 @@ const GameGeneres = ({ onSelectedGenere, selectedGeneres }: Props) => {
                 }
                 variant="link"
                 onClick={() => onSelectedGenere(generes)}
+                whiteSpace="normal"
+                textAlign="center"
               >
                 {generes.name}
               </Button>

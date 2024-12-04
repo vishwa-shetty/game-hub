@@ -1,5 +1,6 @@
-import { Generes, Games, GameQuery, Platform } from "../../models/games";
+import { Games, GameQuery, Platform } from "../../models/games";
 import useData from "./useData";
+import { generes } from "../data/generes";
 
 // selectors for fetching Games with Params
 export const useGames = (gameQuery: GameQuery) =>
@@ -17,7 +18,11 @@ export const useGames = (gameQuery: GameQuery) =>
   );
 
 // fetching Generes
-export const useGenres = () => useData<Generes>("/genres");
+export const useGenres = () => ({
+  data: generes,
+  error: null,
+  isLoading: null,
+});
 
 // fetching parent platform
 export const usePlatform = () => useData<Platform>("/platforms/lists/parents");

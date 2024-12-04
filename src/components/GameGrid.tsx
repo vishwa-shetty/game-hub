@@ -5,7 +5,6 @@ import { GameQuery } from "../models/games";
 import { useGames } from "./hooks/useSelectors";
 
 interface Props {
-  // selectedGenere: Generes | null;
   gameQuery: GameQuery;
 }
 

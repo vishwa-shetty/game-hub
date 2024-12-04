@@ -22,6 +22,7 @@ const GameCard = ({ game }: Props) => {
       <CardHeader p={0}>
         <Image
           borderRadius="lg"
+          minHeight="250px"
           src={getCroppedImageUrl(game.background_image)}
         />
       </CardHeader>

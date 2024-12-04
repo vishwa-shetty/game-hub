@@ -24,20 +24,13 @@ const GameGeneres = ({ onSelectedGenere, selectedGeneres }: Props) => {
       <List>
         {error && <p>{error}</p>}
         {isLoading && <GameGeneresSkelton count={data?.length ?? 10} />}
-        <Button
-          marginBottom="10px"
-          variant="link"
-          onClick={() => onSelectedGenere(null)}
-          fontSize="4xl"
-        >
-          All
-        </Button>
         {data?.map((generes) => (
           <ListItem key={generes.id} marginBottom="5px">
             <HStack>
               <Image
                 boxSize="40px"
                 height="40px"
+                objectFit="cover"
                 borderRadius="lg"
                 src={getCroppedImageUrl(generes.image_background)}
               />

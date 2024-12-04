@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Grid, GridItem, Heading, HStack, Show, Text } from "@chakra-ui/react";
-import { GameQuery } from "./models/games";
+import { Grid, GridItem, Heading, HStack, Show } from "@chakra-ui/react";
+import { GameQuery, Sort } from "./models/games";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import GameGeneres from "./components/GameGeneres";
@@ -8,12 +8,13 @@ import GameGrid from "./components/GameGrid";
 import PlatformSelector from "./components/common/PlatformSelector";
 import SortSelector from "./components/common/SortSelector";
 import "./App.css";
+import SearchProvider from "./context/SearchContext";
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
-    <>
+    <SearchProvider>
       <Grid
         templateAreas={{
           base: `"nav" 
@@ -29,7 +30,7 @@ function App() {
         minHeight="100vh"
       >
         <GridItem area={"nav"}>
-          <NavBar />
+          <NavBar gameQuery={gameQuery} setGameQuery={setGameQuery} />
         </GridItem>
         <Show above="lg">
           <GridItem area={"sidebar"} marginTop="20px">
@@ -45,10 +46,7 @@ function App() {
           <>
             <HStack justifyContent="space-between">
               <div>
-                <Heading fontSize="6xl">New and Trending</Heading>
-                <Text fontSize="lg">
-                  Based on player counts and release date
-                </Text>
+                <Heading fontSize="5xl">New and Trending</Heading>
               </div>
               <HStack justifyContent="space-around">
                 <PlatformSelector
@@ -59,7 +57,7 @@ function App() {
                 />
                 <SortSelector
                   selectedSort={gameQuery.sort}
-                  onSelectedSort={(sort: string) =>
+                  onSelectedSort={(sort: Sort) =>
                     setGameQuery({ ...gameQuery, sort })
                   }
                 />
@@ -72,7 +70,7 @@ function App() {
           <Footer />
         </GridItem>
       </Grid>
-    </>
+    </SearchProvider>
   );
 }
 

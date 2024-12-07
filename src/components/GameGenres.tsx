@@ -6,46 +6,46 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
-import GameGeneresSkelton from "./common/GameGeneresSkelton";
-import { Generes } from "../models/games";
+import { Genres } from "../models/games";
 import getCroppedImageUrl from "./services/image-url";
 import { useGenres } from "./hooks/useSelectors";
+import GamegenresSkelton from "./common/GameGenresSkelton";
 
 interface Props {
-  onSelectedGenere: (generes: Generes | null) => void;
-  selectedGeneres: Generes | null;
+  onSelectedgenre: (genres: Genres | null) => void;
+  selectedgenres: Genres | null;
 }
 
-const GameGeneres = ({ onSelectedGenere, selectedGeneres }: Props) => {
+const Gamegenres = ({ onSelectedgenre, selectedgenres }: Props) => {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
-  if (isLoading) return <GameGeneresSkelton count={data?.length ?? 10} />;
+  if (isLoading) return <GamegenresSkelton />;
   return (
     <>
-      <Heading marginBottom="20px">Generes</Heading>
+      <Heading marginBottom="20px">genres</Heading>
       <List>
-        {data?.map((generes) => (
-          <ListItem key={generes.id} marginBottom="5px">
+        {data?.results.map((genres) => (
+          <ListItem key={genres.id} marginBottom="5px">
             <HStack>
               <Image
                 boxSize="40px"
                 height="40px"
                 objectFit="cover"
                 borderRadius="lg"
-                src={getCroppedImageUrl(generes.image_background)}
+                src={getCroppedImageUrl(genres.image_background)}
               />
               <Button
                 style={
-                  selectedGeneres?.id === generes.id
+                  selectedgenres?.id === genres.id
                     ? { fontWeight: "bold", textDecoration: "underline" }
                     : { fontWeight: "normal", textDecoration: "none" }
                 }
                 variant="link"
-                onClick={() => onSelectedGenere(generes)}
+                onClick={() => onSelectedgenre(genres)}
                 whiteSpace="normal"
                 textAlign="center"
               >
-                {generes.name}
+                {genres.name}
               </Button>
             </HStack>
           </ListItem>
@@ -55,4 +55,4 @@ const GameGeneres = ({ onSelectedGenere, selectedGeneres }: Props) => {
   );
 };
 
-export default GameGeneres;
+export default Gamegenres;

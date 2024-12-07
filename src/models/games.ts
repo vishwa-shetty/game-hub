@@ -4,13 +4,13 @@ export interface Platform {
   slug: string;
 }
 
-export interface Generes {
+export interface Genres {
   id: number;
   name: string;
   image_background: string;
 }
 
-export interface Games extends Generes {
+export interface Games extends Genres {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
@@ -19,6 +19,8 @@ export interface Games extends Generes {
 export interface UseFetchData<T> {
   results: T[];
   count: number;
+  next: null;
+  previous: null;
 }
 
 export interface Sort {
@@ -27,7 +29,7 @@ export interface Sort {
 }
 
 export interface GameQuery {
-  genere: Generes | null;
+  genre: Genres | null;
   sort: Sort | null;
   platform: Platform | null;
   search: string | null;

@@ -3,12 +3,12 @@ import { Grid, GridItem, Heading, HStack, Show } from "@chakra-ui/react";
 import { GameQuery, Sort } from "./models/games";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
-import GameGeneres from "./components/GameGeneres";
 import GameGrid from "./components/GameGrid";
 import PlatformSelector from "./components/common/PlatformSelector";
 import SortSelector from "./components/common/SortSelector";
 import "./App.css";
 import SearchProvider from "./context/SearchContext";
+import Gamegenres from "./components/GameGenres";
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -34,11 +34,9 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area={"sidebar"} marginTop="20px">
-            <GameGeneres
-              selectedGeneres={gameQuery.genere}
-              onSelectedGenere={(genere) =>
-                setGameQuery({ ...gameQuery, genere })
-              }
+            <Gamegenres
+              selectedgenres={gameQuery.genre}
+              onSelectedgenre={(genre) => setGameQuery({ ...gameQuery, genre })}
             />
           </GridItem>
         </Show>
@@ -47,7 +45,7 @@ function App() {
             <HStack justifyContent="space-between">
               <div>
                 <Heading fontSize="5xl">{`${gameQuery?.platform?.name || ""} ${
-                  gameQuery?.genere?.name || ""
+                  gameQuery?.genre?.name || ""
                 } Games`}</Heading>
               </div>
               <HStack justifyContent="space-around">

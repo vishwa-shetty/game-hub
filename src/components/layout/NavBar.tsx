@@ -21,8 +21,6 @@ const NavBar = ({ setGameQuery, gameQuery }: Props) => {
     setGameQuery({ ...gameQuery, search: searchValue });
   }, [searchValue]);
 
-  console.log(searchValue, "from navbar context");
-
   return (
     <>
       <HStack spacing={5}>

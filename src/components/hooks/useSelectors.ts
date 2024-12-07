@@ -13,7 +13,15 @@ import { platformData } from "../data/platformData";
 export const useGames = (gameQuery: GameQuery) =>
   useQuery<FetchResponse<Games>, Error>({
     queryKey: ["games", gameQuery],
-    queryFn: () => getAll<Games>("/games", gameQuery),
+    queryFn: () =>
+      getAll<Games>("/games", {
+        params: {
+          genres: gameQuery?.genre?.id,
+          parent_platforms: gameQuery?.platform?.id,
+          ordering: gameQuery?.sort?.value,
+          search: gameQuery?.search,
+        },
+      }),
     staleTime: 24 * 60 * 60 * 1000, //24H
   });
 

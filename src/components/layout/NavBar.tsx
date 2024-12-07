@@ -18,10 +18,9 @@ const NavBar = ({ setGameQuery, gameQuery }: Props) => {
   const { searchValue } = useContext(SearchContext) as SearchContextType;
 
   useEffect(() => {
-    setGameQuery({ ...gameQuery, search: searchValue });
+    if (searchValue?.length !== 0)
+      setGameQuery({ ...gameQuery, search: searchValue });
   }, [searchValue]);
-
-  console.log(searchValue, "from navbar context");
 
   return (
     <>

@@ -16,7 +16,7 @@ export interface Games extends Genres {
   metacritic: number;
 }
 
-export interface UseFetchData<T> {
+export interface FetchResponse<T> {
   results: T[];
   count: number;
   next: null;

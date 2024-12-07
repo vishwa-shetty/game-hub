@@ -1,7 +1,7 @@
 import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
 
-const GameGridSkelton = ({ count }: { count: number }) => {
-  const gameArray = new Array(count);
+const GameGridSkelton = () => {
+  const gameArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <>

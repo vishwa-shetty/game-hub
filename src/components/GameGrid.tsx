@@ -13,16 +13,16 @@ const GameGrid = ({ gameQuery }: Props) => {
 
   return (
     <div>
-      {error && <Text>error</Text>}
+      {error && <Text>{error.message}</Text>}
       <SimpleGrid
         column={3}
         spacing={10}
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
         mt={5}
       >
-        {data && data?.length <= 0 && <Text>No Games Found.</Text>}
-        {isLoading && <GameGridSkelton count={data?.length ?? 9} />}
-        {data?.map((game) => (
+        {data && data?.count <= 0 && <Text>No Games Found.</Text>}
+        {isLoading && <GameGridSkelton />}
+        {data?.results.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </SimpleGrid>

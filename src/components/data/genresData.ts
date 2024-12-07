@@ -1,4 +1,4 @@
-export const genres = {
+export const genresData = {
   count: 19,
   next: null,
   previous: null,

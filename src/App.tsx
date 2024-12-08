@@ -34,7 +34,7 @@ function App() {
           <NavBar gameQuery={gameQuery} setGameQuery={setGameQuery} />
         </GridItem>
         <Show above="lg">
-          <GridItem area={"sidebar"} marginTop="20px">
+          <GridItem area={"sidebar"}>
             <Gamegenres
               selectedgenreID={gameQuery.genreId}
               onSelectedgenre={(genre) =>
@@ -46,7 +46,7 @@ function App() {
         <GridItem area={"main"}>
           <>
             <HStack justifyContent="space-between">
-              <GameHeading gameQuery={gameQuery} />
+              <GameHeading gameQuery={gameQuery} setGameQuery={setGameQuery} />
               <HStack justifyContent="space-around">
                 <PlatformSelector
                   selectPlatformId={gameQuery.platformId}

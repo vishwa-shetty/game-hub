@@ -32,5 +32,5 @@ export interface GameQuery {
   genreId?: number;
   sort?: string;
   platformId?: number;
-  search: string | null;
+  search?: string | null;
 }

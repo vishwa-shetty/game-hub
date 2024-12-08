@@ -5,23 +5,27 @@ import {
   Genres,
   Platform,
 } from "../../models/games";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { getAll } from "../services/api-client";
 import { genresData } from "../data/genresData";
 import { platformData } from "../data/platformData";
 
 export const useGames = (gameQuery: GameQuery) =>
-  useQuery<FetchResponse<Games>, Error>({
+  useInfiniteQuery<FetchResponse<Games>, Error>({
     queryKey: ["games", gameQuery],
-    queryFn: () =>
-      getAll<Games>("/games", {
+    queryFn: ({ pageParam = 1 }) =>
+      getAll("/games", {
         params: {
           genres: gameQuery?.genre?.id,
           parent_platforms: gameQuery?.platform?.id,
           ordering: gameQuery?.sort?.value,
           search: gameQuery?.search,
+          page: pageParam,
         },
       }),
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage?.next ? allPages.length + 1 : undefined;
+    },
     staleTime: 24 * 60 * 60 * 1000, //24H
   });
 

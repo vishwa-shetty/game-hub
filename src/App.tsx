@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Grid, GridItem, Heading, HStack, Show } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import { GameQuery, Sort } from "./models/games";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
@@ -9,6 +9,7 @@ import SortSelector from "./components/common/SortSelector";
 import "./App.css";
 import SearchProvider from "./context/SearchContext";
 import Gamegenres from "./components/GameGenres";
+import GameHeading from "./components/common/GameHeading";
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -35,30 +36,28 @@ function App() {
         <Show above="lg">
           <GridItem area={"sidebar"} marginTop="20px">
             <Gamegenres
-              selectedgenres={gameQuery.genre}
-              onSelectedgenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedgenreID={gameQuery.genreId}
+              onSelectedgenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre?.id })
+              }
             />
           </GridItem>
         </Show>
         <GridItem area={"main"}>
           <>
             <HStack justifyContent="space-between">
-              <div>
-                <Heading fontSize="5xl">{`${gameQuery?.platform?.name || ""} ${
-                  gameQuery?.genre?.name || ""
-                } Games`}</Heading>
-              </div>
+              <GameHeading gameQuery={gameQuery} />
               <HStack justifyContent="space-around">
                 <PlatformSelector
-                  selectPlatform={gameQuery.platform}
+                  selectPlatformId={gameQuery.platformId}
                   onSelectPlatform={(platform) =>
-                    setGameQuery({ ...gameQuery, platform })
+                    setGameQuery({ ...gameQuery, platformId: platform?.id })
                   }
                 />
                 <SortSelector
-                  selectedSort={gameQuery.sort}
+                  selectedSortValue={gameQuery?.sort}
                   onSelectedSort={(sort: Sort) =>
-                    setGameQuery({ ...gameQuery, sort })
+                    setGameQuery({ ...gameQuery, sort: sort.value })
                   }
                 />
               </HStack>

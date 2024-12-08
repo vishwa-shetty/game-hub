@@ -1,10 +1,10 @@
 import { SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
-import GameCard from "./common/GameCard";
-import GameGridSkelton from "./common/GameGridSkelton";
-import { GameQuery } from "../models/games";
-import { useGames } from "./hooks/useSelectors";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { GameQuery } from "../models/games";
+import GameCard from "./common/GameCard";
+import GameGridSkelton from "./common/GameGridSkelton";
+import { useGames } from "./hooks/useGame";
 
 interface Props {
   gameQuery: GameQuery;
@@ -39,7 +39,7 @@ const GameGrid = ({ gameQuery }: Props) => {
         {data && data?.pages?.length <= 0 && <Text>No Games Found.</Text>}
         {isLoading && <GameGridSkelton />}
         {data?.pages.map((game, index) => (
-          <React.Fragment>
+          <React.Fragment key={index}>
             {game?.results.map((gameData) => (
               <GameCard key={gameData.id} game={gameData} />
             ))}

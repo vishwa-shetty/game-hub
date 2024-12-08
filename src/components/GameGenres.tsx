@@ -8,15 +8,15 @@ import {
 } from "@chakra-ui/react";
 import { Genres } from "../models/games";
 import getCroppedImageUrl from "./services/image-url";
-import { useGenres } from "./hooks/useSelectors";
 import GamegenresSkelton from "./common/GameGenresSkelton";
+import { useGenres } from "./hooks/useGenre";
 
 interface Props {
   onSelectedgenre: (genres: Genres | null) => void;
-  selectedgenres: Genres | null;
+  selectedgenreID?: number;
 }
 
-const Gamegenres = ({ onSelectedgenre, selectedgenres }: Props) => {
+const Gamegenres = ({ onSelectedgenre, selectedgenreID }: Props) => {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
   if (isLoading) return <GamegenresSkelton />;
@@ -36,7 +36,7 @@ const Gamegenres = ({ onSelectedgenre, selectedgenres }: Props) => {
               />
               <Button
                 style={
-                  selectedgenres?.id === genres.id
+                  selectedgenreID === genres.id
                     ? { fontWeight: "bold", textDecoration: "underline" }
                     : { fontWeight: "normal", textDecoration: "none" }
                 }

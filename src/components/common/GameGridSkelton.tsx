@@ -6,7 +6,7 @@ const GameGridSkelton = () => {
   return (
     <>
       {gameArray.map((game) => (
-        <Card maxW="sm" borderRadius="lg">
+        <Card key={game} maxW="sm" borderRadius="lg">
           <Skeleton height="200px" />
           <CardBody>
             <SkeletonText mt="1" noOfLines={2} spacing="2" skeletonHeight="6" />

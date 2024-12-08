@@ -3,11 +3,11 @@ import { BsChevronDown } from "react-icons/bs";
 import { Sort } from "../../models/games";
 
 interface Props {
-  selectedSort: Sort | null;
+  selectedSortValue?: string;
   onSelectedSort: (Sort: Sort) => void;
 }
 
-const SortSelector = ({ selectedSort, onSelectedSort }: Props) => {
+const SortSelector = ({ selectedSortValue, onSelectedSort }: Props) => {
   const sortValues = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date Added" },
@@ -17,10 +17,12 @@ const SortSelector = ({ selectedSort, onSelectedSort }: Props) => {
     { value: "-rating", label: "Average rating" },
   ];
 
+  const selectedSort = sortValues.find((s) => selectedSortValue === s.value);
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {`Sort By: ${selectedSort ? selectedSort.label : "Relevence"} `}
+        {`Sort By: ${selectedSortValue ? selectedSort?.label : "Relevence"} `}
       </MenuButton>
       <MenuList>
         {sortValues.map((sort) => (

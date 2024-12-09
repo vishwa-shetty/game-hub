@@ -18,7 +18,7 @@ const SearchInput = () => {
         <InputLeftElement pointerEvents="stroke">
           <MdLocationSearching />
         </InputLeftElement>
-        <Input ref={searchInput} type="tel" placeholder="Search Games..." />
+        <Input ref={searchInput} type="text" placeholder="Search Games..." />
       </InputGroup>
     </form>
   );

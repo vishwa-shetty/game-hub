@@ -29,7 +29,9 @@ const GameHeading = ({ gameQuery, setGameQuery }: Props) => {
       padding="0"
       fontSize="4xl"
     >
-      {`'${searchValue}' ${genre?.name || ""} ${platform?.name || ""} Games`}
+      {`${searchValue ? `'${searchValue}'` : ""} ${genre?.name || ""} ${
+        platform?.name || ""
+      } Games`}
     </Button>
   );
 };

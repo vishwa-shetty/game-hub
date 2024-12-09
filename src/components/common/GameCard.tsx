@@ -29,7 +29,7 @@ const GameCard = ({ game }: Props) => {
       <CardBody>
         <HStack>
           <Platform
-            gamePlatforms={game.parent_platforms.map((item) => item.platform)}
+            gamePlatforms={game?.parent_platforms?.map((item) => item.platform)}
           />
         </HStack>
       </CardBody>

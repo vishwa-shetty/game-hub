@@ -1,11 +1,4 @@
-import {
-  HStack,
-  List,
-  ListItem,
-  Image,
-  Heading,
-  Button,
-} from "@chakra-ui/react";
+import { HStack, List, ListItem, Image, Button } from "@chakra-ui/react";
 import { Genres } from "../models/games";
 import getCroppedImageUrl from "./services/image-url";
 import GamegenresSkelton from "./common/GameGenresSkelton";
@@ -22,7 +15,15 @@ const Gamegenres = ({ onSelectedgenre, selectedgenreID }: Props) => {
   if (isLoading) return <GamegenresSkelton />;
   return (
     <>
-      <Heading marginBottom="20px">genres</Heading>
+      <Button
+        fontSize="4xl"
+        variant="plain"
+        onClick={() => onSelectedgenre(null)}
+        marginBottom="20px"
+        padding="0"
+      >
+        genres
+      </Button>
       <List>
         {data?.results.map((genres) => (
           <ListItem key={genres.id} marginBottom="5px">

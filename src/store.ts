@@ -1,5 +1,6 @@
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 interface GameQuery {
   genreId?: number;
@@ -10,24 +11,46 @@ interface GameQuery {
 
 interface GameStore {
   gameQuery: GameQuery;
-  setGenre: (genre: number) => void;
-  setPlatform: (platform: number) => void;
-  setSortOrder: (sort: string) => void;
+  setGenre: (genreId: number) => void;
+  setPlatform: (platformId: number) => void;
+  setSortOrder: (sortOrder: string) => void;
   setSearchText: (searchValue: string) => void;
+  resetGameQuery: () => void;
 }
 
-const gameStore = create<GameStore>((set) => ({
-  gameQuery: {},
-  setGenre: (genreId) =>
-    set((state) => ({ gameQuery: { ...state.gameQuery, genreId } })),
-  setSortOrder: (sortOrder) =>
-    set((state) => ({ gameQuery: { ...state.gameQuery, sortOrder } })),
-  setPlatform: (platformId) =>
-    set((state) => ({ gameQuery: { ...state.gameQuery, platformId } })),
-  setSearchText: (search) => set(() => ({ gameQuery: { search } })),
-}));
+const useGameStore = create<GameStore>()(
+  devtools(
+    (set) => {
+      // Helper function to update gameQuery state
+      const updateGameQuery = (updates: Partial<GameQuery>) =>
+        set((state) => ({ gameQuery: { ...state.gameQuery, ...updates } }));
 
-if (process.env.NODE_ENV === "development")
-  mountStoreDevtool("Game Store", gameStore);
+      return {
+        gameQuery: {},
+        setGenre: (genreId) => updateGameQuery({ genreId }),
+        setPlatform: (platformId) => {
+          if (platformId === -1) {
+            // Remove platformId from gameQuery
+            set((state) => {
+              const { platformId, ...rest } = state.gameQuery;
+              return { gameQuery: rest };
+            });
+          } else {
+            updateGameQuery({ platformId });
+          }
+        },
+        setSortOrder: (sortOrder) => updateGameQuery({ sortOrder }),
+        setSearchText: (search) => updateGameQuery({ search }),
+        resetGameQuery: () => set(() => ({ gameQuery: {} })),
+      };
+    },
+    { name: "GameStore" } // Name for Redux DevTools
+  )
+);
 
-export default gameStore;
+// Enable simple-zustand-devtools for development inspection
+if (process.env.NODE_ENV === "development") {
+  mountStoreDevtool("Game Store", useGameStore);
+}
+
+export default useGameStore;

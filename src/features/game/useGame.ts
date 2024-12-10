@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { GameQuery, FetchResponse, Games } from "../../models/games";
-import { getAll } from "../services/api-client";
+import { getAll } from "../../services/api-client";
 
 export const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Games>, Error>({

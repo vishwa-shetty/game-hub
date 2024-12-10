@@ -1,7 +1,7 @@
 import { HStack, Image, Img, useColorMode } from "@chakra-ui/react";
-import logo_light from "../../assets/game-over-light.png";
-import logo_dark from "../../assets/game-over-dark.png";
-import user from "../../assets/user.png";
+import logo_light from "../assets/game-over-light.png";
+import logo_dark from "../assets/game-over-dark.png";
+import user from "../assets/user.png";
 import ToggleTheme from "../features/theme/ToggleTheme";
 import SearchInput from "../features/search/SearchInput";
 import {

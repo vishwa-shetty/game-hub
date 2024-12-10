@@ -2,11 +2,14 @@ import { HStack, Image, Img, useColorMode } from "@chakra-ui/react";
 import logo_light from "../../assets/game-over-light.png";
 import logo_dark from "../../assets/game-over-dark.png";
 import user from "../../assets/user.png";
-import ToggleTheme from "../common/ToggleTheme";
-import SearchInput from "../common/SearchInput";
-import { SearchContext, SearchContextType } from "../../context/SearchContext";
+import ToggleTheme from "../features/theme/ToggleTheme";
+import SearchInput from "../features/search/SearchInput";
+import {
+  SearchContext,
+  SearchContextType,
+} from "../features/search/SearchContext";
 import { Dispatch, SetStateAction, useContext, useEffect } from "react";
-import { GameQuery } from "../../models/games";
+import { GameQuery } from "../models/games";
 
 interface Props {
   gameQuery: GameQuery;

@@ -1,18 +1,18 @@
 import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import React, { Suspense, useState } from "react";
 import "./App.css";
-import Gamegenres from "./components/GameGenres";
-import GameGridSkelton from "./components/common/GameGridSkelton";
-import GameHeading from "./components/common/GameHeading";
-import PlatformSelector from "./components/common/PlatformSelector";
-import SortSelector from "./components/common/SortSelector";
-import Footer from "./components/layout/Footer";
-import NavBar from "./components/layout/NavBar";
-import SearchProvider from "./context/SearchContext";
+import GameGridSkelton from "./features/game/GameGridSkelton";
+import GameHeading from "./features/game/GameHeading";
+import PlatformSelector from "./features/platform/PlatformSelector";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
+import SearchProvider from "./features/search/SearchContext";
 import { GameQuery, Sort } from "./models/games";
+import Gamegenres from "./features/genre/Genres";
+import SortSelector from "./components/SortSelector";
 
 //Lazy load heavy components
-const GameGridComponent = React.lazy(() => import("./components/GameGrid"));
+const GameGridComponent = React.lazy(() => import("./features/game/GameGrid"));
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);

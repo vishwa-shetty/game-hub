@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { FetchResponse } from "../../models/games";
+import { FetchResponse } from "../models/games";
 
 const apiService = axios.create({
   baseURL: "https://api.rawg.io/api",

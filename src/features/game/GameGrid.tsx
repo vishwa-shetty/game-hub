@@ -1,10 +1,10 @@
 import { SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { GameQuery } from "../models/games";
-import GameCard from "./common/GameCard";
-import GameGridSkelton from "./common/GameGridSkelton";
-import { useGames } from "./hooks/useGame";
+import GameCard from "./GameCard";
+import GameGridSkelton from "./GameGridSkelton";
+import { useGames } from "./useGame";
+import { GameQuery } from "../../models/games";
 
 interface Props {
   gameQuery: GameQuery;

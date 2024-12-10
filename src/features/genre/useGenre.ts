@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Genres } from "../../models/games";
-import { genresData } from "../data/genresData";
-import { getAll } from "../services/api-client";
+import { genresData } from "./data";
+import { getAll } from "../../services/api-client";
 
 export const useGenres = () =>
   useQuery({

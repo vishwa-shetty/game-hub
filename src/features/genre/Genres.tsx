@@ -1,8 +1,8 @@
 import { HStack, List, ListItem, Image, Button } from "@chakra-ui/react";
-import { Genres } from "../models/games";
-import getCroppedImageUrl from "./services/image-url";
-import GamegenresSkelton from "./common/GameGenresSkelton";
-import { useGenres } from "./hooks/useGenre";
+import { Genres } from "../../models/games";
+import GenresSkelton from "./GenresSkelton";
+import { useGenres } from "./useGenre";
+import getCroppedImageUrl from "../../services/image-url";
 
 interface Props {
   onSelectedgenre: (genres: Genres | null) => void;
@@ -12,7 +12,7 @@ interface Props {
 const Gamegenres = ({ onSelectedgenre, selectedgenreID }: Props) => {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
-  if (isLoading) return <GamegenresSkelton />;
+  if (isLoading) return <GenresSkelton />;
   return (
     <>
       <Button

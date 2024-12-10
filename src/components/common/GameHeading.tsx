@@ -2,8 +2,8 @@ import { Button } from "@chakra-ui/react";
 import { GameQuery } from "../../models/games";
 import { getGenre } from "../hooks/useGenre";
 import { getPlatForm } from "../hooks/usePlatform";
-import { Dispatch, SetStateAction, useContext } from "react";
-import { SearchContext, SearchContextType } from "../../context/SearchContext";
+import { Dispatch, SetStateAction } from "react";
+// import { SearchContext, SearchContextType } from "../../context/SearchContext";
 
 interface Props {
   gameQuery: GameQuery | null;
@@ -13,7 +13,7 @@ interface Props {
 const GameHeading = ({ gameQuery, setGameQuery }: Props) => {
   const genre = getGenre(gameQuery?.genreId);
   const platform = getPlatForm(gameQuery?.platformId);
-  const { searchValue } = useContext(SearchContext) as SearchContextType;
+  // const { searchValue } = useContext(SearchContext) as SearchContextType;
 
   return (
     <Button
@@ -29,9 +29,7 @@ const GameHeading = ({ gameQuery, setGameQuery }: Props) => {
       padding="0"
       fontSize="4xl"
     >
-      {`${searchValue ? `'${searchValue}'` : ""} ${genre?.name || ""} ${
-        platform?.name || ""
-      } Games`}
+      {`${genre?.name || ""} ${platform?.name || ""} Games`}
     </Button>
   );
 };

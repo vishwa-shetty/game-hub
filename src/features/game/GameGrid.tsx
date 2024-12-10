@@ -4,15 +4,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import GameCard from "./GameCard";
 import GameGridSkelton from "./GameGridSkelton";
 import { useGames } from "./useGame";
-import { GameQuery } from "../../models/games";
 
-interface Props {
-  gameQuery: GameQuery;
-}
-
-const GameGrid = ({ gameQuery }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } =
-    useGames(gameQuery);
+const GameGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
   const count = data?.pages.reduce((acc, page) => acc + page.results.length, 0);
 

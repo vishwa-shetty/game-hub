@@ -1,27 +1,24 @@
 import { HStack, Image, Img, useColorMode } from "@chakra-ui/react";
-import logo_light from "../assets/game-over-light.png";
+import { useContext, useEffect } from "react";
 import logo_dark from "../assets/game-over-dark.png";
+import logo_light from "../assets/game-over-light.png";
 import user from "../assets/user.png";
-import ToggleTheme from "../features/theme/ToggleTheme";
-import SearchInput from "../features/search/SearchInput";
 import {
   SearchContext,
   SearchContextType,
 } from "../features/search/SearchContext";
-import { Dispatch, SetStateAction, useContext, useEffect } from "react";
-import { GameQuery } from "../models/games";
+import SearchInput from "../features/search/SearchInput";
+import ToggleTheme from "../features/theme/ToggleTheme";
+import gameStore from "../store";
 
-interface Props {
-  gameQuery: GameQuery;
-  setGameQuery: Dispatch<SetStateAction<GameQuery>>;
-}
-
-const NavBar = ({ setGameQuery, gameQuery }: Props) => {
+const NavBar = () => {
   const { colorMode } = useColorMode();
   const { searchValue } = useContext(SearchContext) as SearchContextType;
 
+  const setSearchValue = gameStore((s) => s.setSearchText);
+
   useEffect(() => {
-    setGameQuery({ ...gameQuery, search: searchValue });
+    setSearchValue(searchValue);
   }, [searchValue]);
 
   return (

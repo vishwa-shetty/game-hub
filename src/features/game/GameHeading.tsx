@@ -1,15 +1,8 @@
 import { Button } from "@chakra-ui/react";
-import { GameQuery } from "../../models/games";
-import { Dispatch, SetStateAction } from "react";
 import { getGenre } from "../genre/useGenre";
 import { getPlatForm } from "../platform/usePlatform";
 
-interface Props {
-  gameQuery: GameQuery | null;
-  setGameQuery: Dispatch<SetStateAction<GameQuery>>;
-}
-
-const GameHeading = ({ gameQuery, setGameQuery }: Props) => {
+const GameHeading = ({ gameQuery, setGameQuery }: any) => {
   const genre = getGenre(gameQuery?.genreId);
   const platform = getPlatForm(gameQuery?.platformId);
 

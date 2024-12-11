@@ -26,7 +26,7 @@ const Platform = ({ gamePlatforms }: { gamePlatforms: PlatformType[] }) => {
   };
   return (
     <HStack>
-      {gamePlatforms.map((platforms) => (
+      {gamePlatforms?.map((platforms) => (
         <Icon key={platforms.id} as={IconMap[platforms.slug]} />
       ))}
     </HStack>

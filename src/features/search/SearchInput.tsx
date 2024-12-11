@@ -2,7 +2,7 @@ import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import { MdLocationSearching } from "react-icons/md";
 import { useContext } from "react";
-import { SearchContext, SearchContextType } from "../../context/SearchContext";
+import { SearchContext, SearchContextType } from "./SearchContext";
 
 const SearchInput = () => {
   const searchInput = useRef<HTMLInputElement>(null);

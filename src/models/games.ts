@@ -27,10 +27,3 @@ export interface Sort {
   value: string;
   label: string;
 }
-
-export interface GameQuery {
-  genreId?: number;
-  sort?: string;
-  platformId?: number;
-  search?: string | null;
-}

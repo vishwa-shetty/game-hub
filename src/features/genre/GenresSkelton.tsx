@@ -1,6 +1,6 @@
 import { SkeletonText, Stack } from "@chakra-ui/react";
 
-const GamegenresSkelton = () => {
+const GenresSkelton = () => {
   const genreArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
@@ -20,4 +20,4 @@ const GamegenresSkelton = () => {
   );
 };
 
-export default GamegenresSkelton;
+export default GenresSkelton;

@@ -8,9 +8,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Games } from "../../models/games";
-import Platform from "./Platform";
-import CriticScore from "./CriticScore";
-import getCroppedImageUrl from "../services/image-url";
+import CriticScore from "../../components/CriticScore";
+import getCroppedImageUrl from "../../services/image-url";
+import Platform from "../platform/Platform";
 
 interface Props {
   game: Games;

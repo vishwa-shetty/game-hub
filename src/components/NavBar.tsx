@@ -22,7 +22,7 @@ const NavBar = () => {
 
   return (
     <>
-      <HStack spacing={5}>
+      <HStack spacing={5} marginBottom="20px">
         <Img src={colorMode === "dark" ? logo_dark : logo_light} boxSize={10} />
         <SearchInput />
         <ToggleTheme />

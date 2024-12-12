@@ -20,7 +20,7 @@ const Gamegenres = () => {
         marginBottom="20px"
         padding="0"
       >
-        genres
+        Genres
       </Button>
       <List>
         {data?.results.map((genres) => (

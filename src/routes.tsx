@@ -6,7 +6,7 @@ import { ErrorPage } from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/game-over",
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [

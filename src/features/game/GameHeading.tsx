@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react";
-import { getGenre } from "../genre/useGenre";
-import { getPlatForm } from "../platform/usePlatform";
+import { getGenre } from "../../hooks/useGenre";
+import { getPlatForm } from "../../hooks/usePlatform";
 import gameStore from "../../store";
 
 const GameHeading = () => {

@@ -1,6 +1,6 @@
 import { HStack, List, ListItem, Image, Button } from "@chakra-ui/react";
 import GenresSkelton from "./GenresSkelton";
-import { useGenres } from "./useGenre";
+import { useGenres } from "../../hooks/useGenre";
 import getCroppedImageUrl from "../../services/image-url";
 import gameStore from "../../store";
 
@@ -20,7 +20,7 @@ const Gamegenres = () => {
         marginBottom="20px"
         padding="0"
       >
-        genres
+        Genres
       </Button>
       <List>
         {data?.results.map((genres) => (

@@ -1,8 +1,7 @@
-import { HStack, Image, Img, useColorMode } from "@chakra-ui/react";
+import { HStack, Img, useColorMode } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
 import logo_dark from "../assets/game-over-dark.png";
 import logo_light from "../assets/game-over-light.png";
-import user from "../assets/user.png";
 import {
   SearchContext,
   SearchContextType,
@@ -23,11 +22,11 @@ const NavBar = () => {
 
   return (
     <>
-      <HStack spacing={5}>
+      <HStack spacing={5} marginBottom="20px">
         <Img src={colorMode === "dark" ? logo_dark : logo_light} boxSize={10} />
         <SearchInput />
         <ToggleTheme />
-        <Image src={user} boxSize={10} />
+        {/* <Image src={user} boxSize={10} /> */}
       </HStack>
     </>
   );

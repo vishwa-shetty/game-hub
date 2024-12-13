@@ -3,7 +3,8 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import GameCard from "./GameCard";
 import GameGridSkelton from "./GameGridSkelton";
-import { useGames } from "./useGame";
+import { useGames } from "../../hooks/useGame";
+import { Link } from "react-router-dom";
 
 const GameGrid = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
@@ -35,7 +36,9 @@ const GameGrid = () => {
         {data?.pages.map((game, index) => (
           <React.Fragment key={index}>
             {game?.results.map((gameData) => (
-              <GameCard key={gameData.id} game={gameData} />
+              <Link key={gameData.id} to={`games/${gameData?.slug}`}>
+                <GameCard game={gameData} />
+              </Link>
             ))}
           </React.Fragment>
         ))}

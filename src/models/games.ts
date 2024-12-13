@@ -14,6 +14,7 @@ export interface Games extends Genres {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  slug: string;
 }
 
 export interface FetchResponse<T> {
@@ -26,4 +27,13 @@ export interface FetchResponse<T> {
 export interface Sort {
   value: string;
   label: string;
+}
+
+export interface GameDetails {
+  id: number;
+  slug: string;
+  name: string;
+  rating: number;
+  background_image: string;
+  description_raw: string;
 }

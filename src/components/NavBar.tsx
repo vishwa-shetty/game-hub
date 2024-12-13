@@ -1,5 +1,6 @@
 import { HStack, Img, useColorMode } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo_dark from "../assets/game-over-dark.png";
 import logo_light from "../assets/game-over-light.png";
 import {
@@ -23,7 +24,12 @@ const NavBar = () => {
   return (
     <>
       <HStack spacing={5} marginBottom="20px">
-        <Img src={colorMode === "dark" ? logo_dark : logo_light} boxSize={10} />
+        <Link to="/game-over">
+          <Img
+            src={colorMode === "dark" ? logo_dark : logo_light}
+            boxSize={10}
+          />
+        </Link>
         <SearchInput />
         <ToggleTheme />
         {/* <Image src={user} boxSize={10} /> */}

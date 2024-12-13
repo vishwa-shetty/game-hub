@@ -5,6 +5,7 @@ import GameCard from "./GameCard";
 import GameGridSkelton from "./GameGridSkelton";
 import { useGames } from "../../hooks/useGame";
 import { Link } from "react-router-dom";
+import GameSpinner from "../../components/GameSpinner";
 
 const GameGrid = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
@@ -17,12 +18,7 @@ const GameGrid = () => {
     <InfiniteScroll
       next={() => fetchNextPage()}
       hasMore={!!hasNextPage}
-      loader={
-        <VStack mt={10}>
-          <Spinner color="colorPalette.600" />
-          <Text color="colorPalette.600">Loading...</Text>
-        </VStack>
-      }
+      loader={<GameSpinner />}
       dataLength={count || 0}
     >
       <SimpleGrid

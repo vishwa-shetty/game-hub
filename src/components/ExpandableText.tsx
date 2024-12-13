@@ -1,4 +1,4 @@
-import { Button, Link, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 interface Props {
@@ -6,28 +6,14 @@ interface Props {
   website: string | undefined;
 }
 
-const ExpandableText = ({ text, website }: Props) => {
-  const [expandable, setExpandable] = useState(false);
+const ExpandableText = ({ text }: Props) => {
+  const [expandable, setExpandable] = useState(true);
 
-  const finalText = text?.substring(0, 300) + "...";
+  const finalText = text?.substring(0, 300);
 
   return (
     <Text>
-      {expandable && (
-        <>
-          {text}...
-          {website && (
-            <Link
-              href={website}
-              target="_blank"
-              style={{ textDecoration: "underline" }}
-            >
-              Read More
-            </Link>
-          )}
-        </>
-      )}
-      {!expandable && finalText}
+      {expandable ? text + "..." : finalText}
       <Button
         onClick={() => setExpandable(!expandable)}
         colorScheme="yellow"

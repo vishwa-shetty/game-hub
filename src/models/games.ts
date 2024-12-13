@@ -15,6 +15,7 @@ export interface Games extends Genres {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
   slug: string;
+  rating: number;
 }
 
 export interface FetchResponse<T> {

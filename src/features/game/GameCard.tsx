@@ -43,7 +43,7 @@ const GameCard = ({ game }: Props) => {
       <CardFooter maxW="full" paddingTop={0}>
         <HStack justifyContent="space-between" minWidth="100%">
           <Heading fontSize="xl">{game.name}</Heading>
-          <CriticScore score={game.metacritic} />
+          <CriticScore score={game.rating} />
         </HStack>
       </CardFooter>
     </Card>

@@ -34,7 +34,6 @@ const GameDetailsPage = () => {
         >
           <Image
             objectFit="cover"
-            // width="100%"
             width={{ base: "100%", lg: "500px" }}
             height={{ base: "100%", lg: "500px" }}
             src={game?.background_image}
@@ -53,7 +52,6 @@ const GameDetailsPage = () => {
               </Box>
               <GameAttributes game={game} />
             </CardBody>
-            <CardFooter></CardFooter>
           </Stack>
         </Card>
       </Box>

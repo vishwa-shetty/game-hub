@@ -13,7 +13,7 @@ const ExpandableText = ({ text }: Props) => {
 
   return (
     <Text>
-      {expandable ? text + "..." : finalText}
+      {expandable ? text + "..." : finalText + "..."}
       <Button
         onClick={() => setExpandable(!expandable)}
         colorScheme="yellow"

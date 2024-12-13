@@ -5,7 +5,6 @@ import {
   CardFooter,
   Heading,
   Image,
-  Spinner,
   Stack,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
@@ -14,7 +13,6 @@ import ExpandableText from "../components/ExpandableText";
 import GameAttributes from "../components/GameAttributes";
 import GameSpinner from "../components/GameSpinner";
 import { useGameDetails } from "../hooks/useGameDetails";
-import getCroppedImageUrl from "../services/image-url";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();

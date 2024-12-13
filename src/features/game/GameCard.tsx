@@ -18,7 +18,14 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card maxW="sm" borderRadius="lg">
+    <Card
+      maxW="sm"
+      borderRadius="lg"
+      _hover={{
+        transform: "scale(1.05)",
+        transition: "transform .15s ease-in",
+      }}
+    >
       <CardHeader p={0}>
         <Image
           borderRadius="lg"

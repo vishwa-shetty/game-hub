@@ -7,7 +7,7 @@ const BreadCrumb = () => {
     <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
       <BreadcrumbItem>
         <BreadcrumbLink>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/game-over"}>Home</Link>
         </BreadcrumbLink>
       </BreadcrumbItem>
 

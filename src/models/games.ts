@@ -29,6 +29,11 @@ export interface Sort {
   label: string;
 }
 
+export interface Publisher {
+  id: number;
+  name: string;
+}
+
 export interface GameDetails {
   id: number;
   slug: string;
@@ -36,4 +41,11 @@ export interface GameDetails {
   rating: number;
   background_image: string;
   description_raw: string;
+  description: string;
+  website: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
+  genres: Genres[];
+  publishers: Publisher[];
+  released: string;
 }

@@ -14,7 +14,7 @@ const Gamegenres = () => {
   return (
     <>
       <Button
-        fontSize="4xl"
+        fontSize="2xl"
         variant="plain"
         onClick={() => onSelectedGenre(-1)}
         marginBottom="20px"

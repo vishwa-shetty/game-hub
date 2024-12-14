@@ -18,7 +18,7 @@ const HomePage = () => {
         lg: `"sidebar main"`,
       }}
       gridTemplateColumns={{ base: "1fr", lg: "250px 1fr" }} // Adjust column sizes
-      gridTemplateRows="1fr 250px auto"
+      gridTemplateRows="1fr auto"
       gap="4"
       minHeight="100vh"
     >

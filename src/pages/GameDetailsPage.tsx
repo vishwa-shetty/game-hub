@@ -21,7 +21,9 @@ const GameDetailsPage = () => {
       <BreadCrumb />
       <SimpleGrid columns={{ base: 1, md: 2 }} marginTop="20px" gap={5}>
         <GridItem>
-          <Heading size="xl">{game.name}</Heading>
+          <Heading size="xl" marginBottom={2}>
+            {game.name}
+          </Heading>
           <ExpandableText text={game.description_raw?.substring(0, 600)} />
           <GameAttributes game={game} />
         </GridItem>

@@ -12,10 +12,10 @@ const NavBar = () => {
   const { colorMode } = useColorMode();
   const { searchValue } = useContext(SearchContext) as SearchContextType;
 
-  const setSearchValue = gameStore((s) => s.setSearchText);
+  const setSearchText = gameStore((s) => s.setSearchText);
 
   useEffect(() => {
-    setSearchValue(searchValue);
+    setSearchText(searchValue);
   }, [searchValue]);
 
   return (

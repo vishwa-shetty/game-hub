@@ -3,7 +3,6 @@ import { useState } from "react";
 
 interface Props {
   text: string | undefined;
-  website: string | undefined;
 }
 
 const ExpandableText = ({ text }: Props) => {

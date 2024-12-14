@@ -1,17 +1,11 @@
-import {
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  Heading,
-  Image,
-  Stack,
-} from "@chakra-ui/react";
+import { GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import BreadCrumb from "../components/BreadCrumb";
 import ExpandableText from "../components/ExpandableText";
-import GameAttributes from "../components/GameAttributes";
 import GameSpinner from "../components/GameSpinner";
+import GameAttributes from "../features/gamedetails/GameAttributes";
+import GameScreenshots from "../features/gamedetails/GameScreenshots";
+import GameTrailer from "../features/gamedetails/GameTrailer";
 import { useGameDetails } from "../hooks/useGameDetails";
 
 const GameDetailsPage = () => {
@@ -25,36 +19,17 @@ const GameDetailsPage = () => {
   return (
     <>
       <BreadCrumb />
-
-      <Box marginTop="20px">
-        <Card
-          direction={{ base: "column", sm: "row" }}
-          overflow="hidden"
-          variant="unstyled"
-        >
-          <Image
-            objectFit="cover"
-            width={{ base: "100%", lg: "500px" }}
-            height={{ base: "100%", lg: "500px" }}
-            src={game?.background_image}
-            alt={game?.name}
-            paddingRight={10}
-          />
-
-          <Stack>
-            <CardBody>
-              <Heading size="xl">{game?.name}</Heading>
-              <Box height="150px">
-                <ExpandableText
-                  text={game?.description_raw?.substring(0, 600)}
-                  website={game?.website}
-                />
-              </Box>
-              <GameAttributes game={game} />
-            </CardBody>
-          </Stack>
-        </Card>
-      </Box>
+      <SimpleGrid columns={2} marginTop="20px" gap={5}>
+        <GridItem>
+          <Heading size="xl">{game.name}</Heading>
+          <ExpandableText text={game.description_raw?.substring(0, 600)} />
+          <GameAttributes game={game} />
+        </GridItem>
+        <GridItem>
+          <GameTrailer gameId={game.id} />
+        </GridItem>
+      </SimpleGrid>
+      <GameScreenshots gameId={game.id} />
     </>
   );
 };

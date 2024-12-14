@@ -24,7 +24,7 @@ const Gamegenres = () => {
       </Button>
       <List>
         {data?.results.map((genres) => (
-          <ListItem key={genres.id} marginBottom="5px">
+          <ListItem key={genres.id} marginBottom="10px">
             <HStack>
               <Image
                 boxSize="40px"
@@ -36,13 +36,14 @@ const Gamegenres = () => {
               <Button
                 style={
                   selectedgenreID === genres.id
-                    ? { fontWeight: "bold", textDecoration: "underline" }
-                    : { fontWeight: "normal", textDecoration: "none" }
+                    ? { fontWeight: "bold" }
+                    : { fontWeight: "normal" }
                 }
                 variant="link"
                 onClick={() => onSelectedGenre(genres?.id)}
                 whiteSpace="normal"
-                textAlign="center"
+                textAlign="left"
+                fontSize="lg"
               >
                 {genres.name}
               </Button>

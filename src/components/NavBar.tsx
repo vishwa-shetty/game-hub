@@ -28,6 +28,7 @@ const NavBar = () => {
           <Img
             src={colorMode === "dark" ? logo_dark : logo_light}
             boxSize={10}
+            objectFit="contain"
           />
         </Link>
         <SearchInput />

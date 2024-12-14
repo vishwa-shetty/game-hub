@@ -5,7 +5,11 @@ const Footer = () => {
     <>
       <Divider margin="20px" />
       <HStack justifyContent="center" alignItems="center">
-        <Link href="https://www.linkedin.com/in/vishwa-kalshetty/" isExternal>
+        <Link
+          textAlign="center"
+          href="https://www.linkedin.com/in/vishwa-kalshetty/"
+          isExternal
+        >
           Design and Developed by- Vishwa Shetty
         </Link>
       </HStack>

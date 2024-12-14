@@ -15,7 +15,7 @@ const ExpandableText = ({ text }: Props) => {
       {expandable ? text + "..." : finalText + "..."}
       <Button
         onClick={() => setExpandable(!expandable)}
-        colorScheme="yellow"
+        variant="unstyled"
         size="xs"
         margin="0"
       >

@@ -1,7 +1,9 @@
-export interface Platform {
-  id: number;
-  name: string;
+export interface Games extends Genres {
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
   slug: string;
+  rating: number;
 }
 
 export interface Genres {
@@ -10,12 +12,10 @@ export interface Genres {
   image_background: string;
 }
 
-export interface Games extends Genres {
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
+export interface Platform {
+  id: number;
+  name: string;
   slug: string;
-  rating: number;
 }
 
 export interface FetchResponse<T> {
@@ -49,4 +49,15 @@ export interface GameDetails {
   genres: Genres[];
   publishers: Publisher[];
   released: string;
+}
+
+export interface Screenshots {
+  id: number;
+  image: string;
+}
+
+export interface Trailer {
+  id: number;
+  preview: string;
+  data: { 480: string; max: string };
 }

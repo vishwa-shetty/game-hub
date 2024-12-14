@@ -1,20 +1,12 @@
-import {
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  Heading,
-  Image,
-  Spinner,
-  Stack,
-} from "@chakra-ui/react";
+import { GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import BreadCrumb from "../components/BreadCrumb";
-import ExpandableText from "../components/ExpandableText";
-import GameAttributes from "../components/GameAttributes";
-import GameSpinner from "../components/GameSpinner";
+import BreadCrumb from "../components/common/BreadCrumb";
+import ExpandableText from "../components/common/ExpandableText";
+import GameSpinner from "../components/common/GameSpinner";
+import GameAttributes from "../components/gamedetails/GameAttributes";
+import GameScreenshots from "../components/gamedetails/GameScreenshots";
+import GameTrailer from "../components/gamedetails/GameTrailer";
 import { useGameDetails } from "../hooks/useGameDetails";
-import getCroppedImageUrl from "../services/image-url";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -27,38 +19,19 @@ const GameDetailsPage = () => {
   return (
     <>
       <BreadCrumb />
-
-      <Box marginTop="20px">
-        <Card
-          direction={{ base: "column", sm: "row" }}
-          overflow="hidden"
-          variant="unstyled"
-        >
-          <Image
-            objectFit="cover"
-            // width="100%"
-            width={{ base: "100%", lg: "500px" }}
-            height={{ base: "100%", lg: "500px" }}
-            src={game?.background_image}
-            alt={game?.name}
-            paddingRight={10}
-          />
-
-          <Stack>
-            <CardBody>
-              <Heading size="xl">{game?.name}</Heading>
-              <Box height="150px">
-                <ExpandableText
-                  text={game?.description_raw?.substring(0, 600)}
-                  website={game?.website}
-                />
-              </Box>
-              <GameAttributes game={game} />
-            </CardBody>
-            <CardFooter></CardFooter>
-          </Stack>
-        </Card>
-      </Box>
+      <SimpleGrid columns={{ base: 1, md: 2 }} marginTop="20px" gap={5}>
+        <GridItem>
+          <Heading size="xl" marginBottom={2}>
+            {game.name}
+          </Heading>
+          <ExpandableText text={game.description_raw?.substring(0, 600)} />
+          <GameAttributes game={game} />
+        </GridItem>
+        <GridItem>
+          <GameTrailer gameId={game.id} />
+        </GridItem>
+      </SimpleGrid>
+      <GameScreenshots gameId={game.id} />
     </>
   );
 };

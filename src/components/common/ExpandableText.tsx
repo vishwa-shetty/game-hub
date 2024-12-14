@@ -3,7 +3,6 @@ import { useState } from "react";
 
 interface Props {
   text: string | undefined;
-  website: string | undefined;
 }
 
 const ExpandableText = ({ text }: Props) => {
@@ -13,10 +12,10 @@ const ExpandableText = ({ text }: Props) => {
 
   return (
     <Text>
-      {expandable ? text + "..." : finalText}
+      {expandable ? text + "..." : finalText + "..."}
       <Button
         onClick={() => setExpandable(!expandable)}
-        colorScheme="yellow"
+        variant="unstyled"
         size="xs"
         margin="0"
       >

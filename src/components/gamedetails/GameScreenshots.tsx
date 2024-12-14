@@ -1,5 +1,5 @@
 import { Image, SimpleGrid } from "@chakra-ui/react";
-import GameSpinner from "../../components/GameSpinner";
+import GameSpinner from "../common/GameSpinner";
 import { useGameScreenshots } from "../../hooks/useGameScreenshots";
 import getCroppedImageUrl from "../../services/image-url";
 

@@ -1,11 +1,11 @@
 import { GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import BreadCrumb from "../components/BreadCrumb";
-import ExpandableText from "../components/ExpandableText";
-import GameSpinner from "../components/GameSpinner";
-import GameAttributes from "../features/gamedetails/GameAttributes";
-import GameScreenshots from "../features/gamedetails/GameScreenshots";
-import GameTrailer from "../features/gamedetails/GameTrailer";
+import BreadCrumb from "../components/common/BreadCrumb";
+import ExpandableText from "../components/common/ExpandableText";
+import GameSpinner from "../components/common/GameSpinner";
+import GameAttributes from "../components/gamedetails/GameAttributes";
+import GameScreenshots from "../components/gamedetails/GameScreenshots";
+import GameTrailer from "../components/gamedetails/GameTrailer";
 import { useGameDetails } from "../hooks/useGameDetails";
 
 const GameDetailsPage = () => {

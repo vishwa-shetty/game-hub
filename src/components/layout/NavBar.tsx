@@ -1,15 +1,12 @@
 import { HStack, Img, useColorMode } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo_dark from "../assets/game-over-dark.png";
-import logo_light from "../assets/game-over-light.png";
-import {
-  SearchContext,
-  SearchContextType,
-} from "../features/search/SearchContext";
-import SearchInput from "../features/search/SearchInput";
-import ToggleTheme from "../features/theme/ToggleTheme";
-import gameStore from "../store";
+import logo_dark from "../../assets/game-over-dark.png";
+import logo_light from "../../assets/game-over-light.png";
+import { SearchContext, SearchContextType } from "../search/SearchContext";
+import SearchInput from "../search/SearchInput";
+import ToggleTheme from "../theme/ToggleTheme";
+import gameStore from "../../store";
 
 const NavBar = () => {
   const { colorMode } = useColorMode();

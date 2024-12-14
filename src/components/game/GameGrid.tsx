@@ -2,7 +2,7 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
-import GameSpinner from "../../components/GameSpinner";
+import GameSpinner from "../common/GameSpinner";
 import { useGames } from "../../hooks/useGame";
 import GameCard from "./GameCard";
 import GameGridSkelton from "./GameGridSkelton";

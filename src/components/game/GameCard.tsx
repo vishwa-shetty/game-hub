@@ -8,7 +8,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Games } from "../../models/games";
-import CriticScore from "../../components/CriticScore";
+import CriticScore from "../common/CriticScore";
 import getCroppedImageUrl from "../../services/image-url";
 import Platform from "../platform/Platform";
 

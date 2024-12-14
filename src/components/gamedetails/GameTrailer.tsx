@@ -1,4 +1,4 @@
-import GameSpinner from "../../components/GameSpinner";
+import GameSpinner from "../common/GameSpinner";
 import { useGameTrailer } from "../../hooks/useGameTrailer";
 
 interface Props {

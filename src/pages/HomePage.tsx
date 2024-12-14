@@ -1,22 +1,14 @@
-import {
-  Flex,
-  Grid,
-  GridItem,
-  HStack,
-  Show,
-  SimpleGrid,
-  Stack,
-} from "@chakra-ui/react";
+import { Grid, GridItem, Show, SimpleGrid, Stack } from "@chakra-ui/react";
 import React, { Suspense } from "react";
-import SortSelector from "../components/SortSelector";
-import GameGridSkelton from "../features/game/GameGridSkelton";
-import GameHeading from "../features/game/GameHeading";
-import Gamegenres from "../features/genre/Genres";
-import PlatformSelector from "../features/platform/PlatformSelector";
+import SortSelector from "../components/common/SortSelector";
+import GameGridSkelton from "../components/game/GameGridSkelton";
+import GameHeading from "../components/game/GameHeading";
+import Gamegenres from "../components/genre/Genres";
+import PlatformSelector from "../components/platform/PlatformSelector";
 
 const HomePage = () => {
   const GameGridComponent = React.lazy(
-    () => import("../features/game/GameGrid")
+    () => import("../components/game/GameGrid")
   );
 
   return (

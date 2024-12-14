@@ -14,6 +14,6 @@ Add the API key to .env eg - VITE_RAW_API_KEY: "Your_API_KEY"
 
 Run npm run dev to start the web server.
 
-Developed by - Vishwa Shetty
+Developed by - Vishwa Kalshetty
 
 Linkedin - https://www.linkedin.com/in/vishwa-kalshetty/

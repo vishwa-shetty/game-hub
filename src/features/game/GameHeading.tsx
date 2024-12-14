@@ -17,6 +17,8 @@ const GameHeading = () => {
       variant="plain"
       padding="0"
       fontSize="4xl"
+      justifyContent="left"
+      marginBottom="10px"
     >
       {`${genre?.name || ""} ${platform?.name || ""} Games`}
     </Button>

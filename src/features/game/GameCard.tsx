@@ -19,7 +19,8 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card
-      maxW="sm"
+      // maxW="sm"
+      width={{ base: "100%" }}
       borderRadius="lg"
       _hover={{
         transform: "scale(1.05)",
@@ -29,8 +30,8 @@ const GameCard = ({ game }: Props) => {
       <CardHeader p={0}>
         <Image
           borderRadius="lg"
-          minHeight="250px"
           src={getCroppedImageUrl(game.background_image)}
+          width="100%"
         />
       </CardHeader>
       <CardBody>

@@ -19,7 +19,6 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card
-      // maxW="sm"
       width={{ base: "100%" }}
       borderRadius="lg"
       _hover={{

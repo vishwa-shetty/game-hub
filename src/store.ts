@@ -27,7 +27,16 @@ const useGameStore = create<GameStore>()(
 
       return {
         gameQuery: {},
-        setGenre: (genreId) => updateGameQuery({ genreId }),
+        setGenre: (genreId) => {
+          if (genreId === -1) {
+            set((state) => {
+              const { genreId, ...rest } = state.gameQuery;
+              return { gameQuery: rest };
+            });
+          } else {
+            updateGameQuery({ genreId });
+          }
+        },
         setPlatform: (platformId) => {
           if (platformId === -1) {
             // Remove platformId from gameQuery
